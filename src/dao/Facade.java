@@ -43,8 +43,7 @@ public class Facade {
                 String nom = result.getString("nom");
                 String prenom = result.getString("prenom");
                 Person person = new Person(nom, prenom);
-                System.out.println(person.getNom());
-                System.out.println(person.getPrenom());
+                System.out.println(person.getPrenom() + " " + person.getNom());
                 personnes.add(person);
             }
         } catch (SQLException e) {

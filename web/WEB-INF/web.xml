@@ -50,14 +50,14 @@
         <mime-type>text/xml</mime-type>
     </mime-mapping>
     
-    <servlet>
-        <servlet-name>MaServlet</servlet-name>
-        <servlet-class>servlets.MaServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MaServlet</servlet-name>
-        <url-pattern>/lister.jsp</url-pattern>
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>MaServlet</servlet-name>-->
+<!--        <servlet-class>servlets.MaServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>MaServlet</servlet-name>-->
+<!--        <url-pattern>/maservlet</url-pattern>-->
+<!--    </servlet-mapping>-->
 
     <jsp-config>
         <jsp-property-group>

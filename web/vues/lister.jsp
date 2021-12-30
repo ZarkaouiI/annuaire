@@ -12,6 +12,7 @@
     </head>
     <body>
         <c:out value="La liste de toutes les personnes : "/>
+        <input type="hidden" name="id" id="4">
         <ul>
             <c:forEach var="personne" items="${personnes}">
                <li><c:out value="${personne.nom}"/> <c:out value="${personne.prenom}"/></li>
