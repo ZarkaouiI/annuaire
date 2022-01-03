@@ -16,43 +16,42 @@ public class MaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String idParam = req.getParameter("id");
-        int id = Integer.parseInt(idParam);
+        Facade facade = new Facade();
+
+
+        int id = Integer.parseInt(req.getParameter("id"));
         switch (id){
             case 1:
-                this.getServletContext().getRequestDispatcher("/vues/ajoutpersonee.hmtl").forward(req, resp);
+                this.getServletContext().getRequestDispatcher("/vues/ajoutpersonne.html").forward(req, resp);
                 break;
-            case 4:
-                Facade facade = new Facade();
-                req.setAttribute("personnes", facade.listPerson());
-//                String string = "Shitty";
-//                req.setAttribute("string", string);
-//                for(Person person : facade.listPerson()){
-//                    System.out.println(person.getPrenom() + " " + person.getNom());
-//                }
-                this.getServletContext().getRequestDispatcher("/vues/lister.jsp").forward(req, resp);
+            case 2:
+                this.getServletContext().getRequestDispatcher("/vues/ajoutadresse.html").forward(req, resp);
                 break;
         }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Facade facade = new Facade();
 
-        String idParam = req.getParameter("id");
-        int id = Integer.parseInt(idParam);
+
+        int id = Integer.parseInt(req.getParameter("id"));
         switch (id){
-
             case 1:
-                this.getServletContext().getRequestDispatcher("/vues/ajoutpersonee.hmtl").forward(req, resp);
-            case 2 :
-                this.getServletContext().getRequestDispatcher("/vues/ajoutadresse.hmtl").forward(req, resp);
+                String nom = req.getParameter("nom");
+                String prenom = req.getParameter("prenom");
+
+                facade.addPerson(nom, prenom);
+                this.getServletContext().getRequestDispatcher("/vues/ajoutpersonne.html").forward(req, resp);
                 break;
-            case 3:
-                Facade facade = new Facade();
-                req.setAttribute("personnes", facade.listPerson());
-                this.getServletContext().getRequestDispatcher("/vues/associer.jsp").forward(req, resp);
-                break;
-            case 4:
+            case 2:
+                String rue = req.getParameter("rue");
+                String ville = req.getParameter("ville");
+
+                facade.addAddress(rue, ville);
+
+                this.getServletContext().getRequestDispatcher("/vues/ajoutadresse.html").forward(req, resp);
                 break;
         }
     }

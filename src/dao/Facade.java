@@ -25,12 +25,18 @@ public class Facade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void addAddress(String rue, String ville){
-
+        connectDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into adresses(rue, ville) values(?, ?);");
+            preparedStatement.setString(1, rue);
+            preparedStatement.setString(2, ville);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Collection<Person> listPerson(){

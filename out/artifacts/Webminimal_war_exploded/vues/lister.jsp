@@ -11,13 +11,17 @@
         <title>Liste de toutes les personnes</title>
     </head>
     <body>
+        <form method="post" action="/maservlet">
+            <input type="hidden" name="id" id="id" value="4">
+        </form>
         <c:out value="La liste de toutes les personnes : "/>
-        <input type="hidden" name="id" id="4">
         <ul>
             <c:forEach var="personne" items="${personnes}">
-               <li><c:out value="${personne.nom}"/> <c:out value="${personne.prenom}"/></li>
+                <li> <c:out value="${personne.nom}" /> <c:out value="${personne.prenom}" /> </li>
             </c:forEach>
         </ul>
-
+        <p>
+            <c:out value="${name}" />
+        </p>
     </body>
 </html>
